@@ -59,15 +59,35 @@ public class MainProgram {
                     char userCommand = Character.toLowerCase(inp.next().charAt(0));
                     
                 }
+            }
 
+            else if (userInput.equals("5")){
+                System.out.println("Please enter the index for the record you want to delete");
+                int index = inp.nextInt();
+                if (index < 0 || index >= listofPersons.getSize()){
+                    System.out.println("Error. Invalid Index");
+                    continue; //!move to another choice
+                }
+                System.out.println(listofPersons.getPerson(index));
+                System.out.println("Do you want to delete this Person? Answer y/n");
+                char userCommand = Character.toLowerCase(inp.next().charAt(0));
+                if (userCommand == 'y'){
+                    listofPersons.delete(index);
+                }
+            }
+            
+            else{
+                System.out.println("Invalid Input. Please choose one of the command in the following menu");
             }
 
         }
 
-
-
-
     }
+
+
+
+
+    
 
     public static void enterNewPerson(Persons P, Scanner k){
         System.out.println("Please enter name for person");

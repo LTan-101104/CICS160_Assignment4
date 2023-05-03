@@ -40,6 +40,10 @@ public class Persons {
         this.size --;
     }
 
+    public Person getPerson(int index){
+        return this.list.get(index);
+    }
+
     public ArrayList<Person> getInternalList(){ //for aturo grader to check
         return this.list;
     }
