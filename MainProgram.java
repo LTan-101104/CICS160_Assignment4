@@ -1,7 +1,5 @@
 import java.util.Scanner;
-import java.util.ArrayList;;
 public class MainProgram {
-    //TODO: test all function of Person, Student, and Employee first
 
     public static void main (String[] args){
         Persons listofPersons = new Persons();
@@ -22,7 +20,7 @@ public class MainProgram {
             else if (userInput.equals("1")) System.out.println("\n" + listofPersons); //! checked
             else if (userInput.equals("2")) enterNewPerson(listofPersons, inp); //! checked, works fine now but may have problem when accidentially not choose y or n
             else if  (userInput.equals("3")) { //!checked
-                System.out.println("*Enter name of person you want to search for");
+                System.out.println("*Enter name of person you want to search for"); //TODO: need to ask again about whether or not we should treat uppercase and lowercase as the same in this operation
                 String nameSearch = inp.nextLine();
                 Persons res = listofPersons.search(nameSearch);
                 if (res.getSize() == 0) {
@@ -33,18 +31,36 @@ public class MainProgram {
             }
 
             else if (userInput.equals("4")){
-                System.out.println("*Enter the name of person you want to modify");
+                System.out.println("*Enter the name of person record you want to modify");
                 String name = inp.nextLine();
                 Persons modifyList = listofPersons.search(name);
                 for (Person a : modifyList.getInternalList()){
                     System.out.println(a);
-                    System.out.println("*Do you want to modify this person?");
-                    char userCommand = Character.toLowerCase(inp.next().charAt(0));
-                    
+                    System.out.println("*Do you want to modify this person? Answer y/n");
+                    char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
+                    if (userCommand == 'y'){
+                        while (true){
+                            System.out.println("*Please enter the number associated with the field you want to modify:\n" 
+                            + "     1)Name\n" 
+                            + "     2)Address\n"
+                            + "     3)Phone\n");
+                            userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
+                            System.out.println("*Enter the new value that you want to assign");
+                            String valueChange = inp.nextLine();
+                            if (userCommand == '1') a.setName(valueChange);
+                            else if (userCommand == '2') a.setAddress(valueChange);
+                            else if (userCommand == '3') a.setPhone(valueChange);
+                            else{
+                                System.out.println("Invalid input.");
+                                continue;
+                            } 
+                            break; //TODO: this little break here seems to break the main for loop as well
+                        }
+                    }
                 }
             }
 
-            else if (userInput.equals("5")){ //TODO" do index count from 0 or 1? 
+            else if (userInput.equals("5")){ 
             //!checked
                 System.out.println("*Please enter the index for the record you want to delete");
                 int index = inp.nextInt();
@@ -54,7 +70,7 @@ public class MainProgram {
                 }
                 System.out.println(listofPersons.getPerson(index));
                 System.out.println("*Do you want to delete this Person? Answer y/n"); //TODO: may need to care about the case where answer is not y/n
-                char userCommand = Character.toLowerCase(inp.next().charAt(0));
+                char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
                 if (userCommand == 'y'){
                     listofPersons.delete(index);
                 }
@@ -69,9 +85,6 @@ public class MainProgram {
     }
 
 
-
-
-    
 
     public static void enterNewPerson(Persons P, Scanner k){
         System.out.println("*Please enter name for person");
@@ -90,8 +103,6 @@ public class MainProgram {
             P.add(newObj);
             return;
         }
-
-
         System.out.println(("*Is this person an employee? Answer y/n"));
         userInput = Character.toLowerCase(k.nextLine().charAt(0));
         //TODO: check user's answer right here like above
