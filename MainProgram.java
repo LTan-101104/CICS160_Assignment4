@@ -8,24 +8,6 @@ public class MainProgram {
 
     public static void main (String[] args){
         Persons listofPersons = new Persons();
-
-        
- 
-        // ArrayList<String> command = new ArrayList<String>();
-        // command.add("1"); command.add("2"); command.add("3"); command.add("4"); command.add("5"); command.add("q");
-        
-        // while (!command.contains(userInput.toLowerCase())){
-        //     System.out.println("Invalid Input. Please reenter input");
-        //     System.out.println(
-        // "    1)Display complete directory\n" + 
-        // "    2)Enter new Person\n" + 
-        // "    3)Search for new person\n" +
-        // "    4)Modify Person information\n" +
-        // "    5)Delete a record.\n" +
-        // "    Q)Quit");
-        //     userInput = inp.nextLine().toLowerCase();
-        // }
-
         while (true){
             System.out.println("===================================================");
             System.out.println("Enter option from list below");
