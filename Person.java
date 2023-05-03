@@ -40,6 +40,6 @@ class Person{
 
     public String toString(){
         //this function acts as __str__ in Python
-        return "Name:   " + this.getName() + "\nAdress: " + this.getAddress() + "\nPhone:  " + this.getPhone();
+        return "\n_______________________________________________\n" + "Name:   " + this.getName() + "\nAdress: " + this.getAddress() + "\nPhone:  " + this.getPhone() ;
     }
 }

@@ -12,7 +12,7 @@ public class Persons {
     public String toString(){ //! checked 
         String res = "";
         for (Person obj : this.list){
-            res += (obj.toString() + "\n_______________________________________________\n");
+            res += (obj.toString());
         }
         return res; // ! Not clear why we need to have this return statement, by the way it is null not any String
     }

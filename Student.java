@@ -18,7 +18,7 @@ public class Student extends Person{
         return this.year;
     }
 
-    public String toString(){ //TODO: may want to find a way to inherit part of this from person
+    public String toString(){ 
         return super.toString() + "\nGraduation year:   " + this.year;
     }
 }

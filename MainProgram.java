@@ -44,15 +44,16 @@ public class MainProgram {
                 }
             }
 
-            else if (userInput.equals("5")){
+            else if (userInput.equals("5")){ //TODO" do index count from 0 or 1? 
+            //!checked
                 System.out.println("*Please enter the index for the record you want to delete");
                 int index = inp.nextInt();
                 if (index < 0 || index >= listofPersons.getSize()){
-                    System.out.println("Error. Invalid Index");
+                    System.out.println("Error. Invalid Index.");
                     continue; //!move to another choice
                 }
                 System.out.println(listofPersons.getPerson(index));
-                System.out.println("*Do you want t*o delete this Person? Answer y/n"); //TODO: may need to care about the case where answer is not y/n
+                System.out.println("*Do you want to delete this Person? Answer y/n"); //TODO: may need to care about the case where answer is not y/n
                 char userCommand = Character.toLowerCase(inp.next().charAt(0));
                 if (userCommand == 'y'){
                     listofPersons.delete(index);
@@ -96,7 +97,7 @@ public class MainProgram {
         //TODO: check user's answer right here like above
         if (userInput == 'y'){
             System.out.println("*Please enter department");
-            String department = k.nextLine(); //! for some reason it skips this input
+            String department = k.nextLine(); 
             Employee newObj = new Employee(newName, address, phone, department);
             P.add(newObj);
             return;

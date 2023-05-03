@@ -14,7 +14,7 @@ public class Employee extends Person{
         this.department = department;
     }
 
-    public String toString(){ //TODO: may want to find a way to inherit part of this from person
+    public String toString(){ 
         return super.toString() + "\nDepartment:    " + this.department;
     }
 }
