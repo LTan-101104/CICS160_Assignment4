@@ -9,7 +9,7 @@ public class MainProgram {
     public static void main (String[] args){
         Persons listofPersons = new Persons();
         while (true){
-            System.out.println("===================================================");
+            System.out.println("\n\n===================================================");
             System.out.println("Enter option from list below");
             System.out.println(
             "    1)Display complete directory\n" + 
@@ -88,13 +88,12 @@ public class MainProgram {
             P.add(newObj);
             return;
         }
-
-        // pass here means userInput is not
         System.out.println(("Is this person an employee? Answer y/n"));
+        userInput = Character.toLowerCase(k.next().charAt(0));
         //TODO: check user's answer right here like above
         if (userInput == 'y'){
             System.out.println("Please enter department");
-            String department = k.nextLine();
+            String department = k.nextLine(); //! for some reason it skips this input
             Employee newObj = new Employee(newName, address, phone, department);
             P.add(newObj);
             return;
