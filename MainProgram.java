@@ -30,10 +30,14 @@ public class MainProgram {
                 System.out.println("\n" + res);
             }
 
-            else if (userInput.equals("4")){
+            else if (userInput.equals("4")){ //!checked
                 System.out.println("*Enter the name of person record you want to modify");
                 String name = inp.nextLine();
                 Persons modifyList = listofPersons.search(name);
+                if (modifyList.getSize() == 0){
+                    System.out.println("Not found");
+                    continue;
+                }
                 for (Person a : modifyList.getInternalList()){
                     System.out.println(a);
                     System.out.println("*Do you want to modify this person? Answer y/n");
@@ -45,7 +49,7 @@ public class MainProgram {
                             + "     2)Address\n"
                             + "     3)Phone\n");
                             userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
-                            System.out.println("*Enter the new value that you want to assign");
+                            System.out.println("*Enter the new value that you want to assign to the field");
                             String valueChange = inp.nextLine();
                             if (userCommand == '1') a.setName(valueChange);
                             else if (userCommand == '2') a.setAddress(valueChange);
@@ -61,9 +65,8 @@ public class MainProgram {
             }
 
             else if (userInput.equals("5")){ 
-            //!checked
                 System.out.println("*Please enter the index for the record you want to delete");
-                int index = inp.nextInt();
+                int index = inp.nextInt(); //TODO: must get to a new line right here or else it will bring an error in line 72
                 if (index < 0 || index >= listofPersons.getSize()){
                     System.out.println("Error. Invalid Index.");
                     continue; //!move to another choice
