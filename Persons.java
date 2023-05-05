@@ -26,11 +26,11 @@ public class Persons {
         return this.size;
     }
 
-    public Persons search(String name){ //! checked
+    public Persons search(String name){ //TODO: ignor cases
         // currently this only add if it is the same string, does not ignore cases
         Persons res = new Persons();
         for (Person obj : this.list){
-            if (obj.getName().equals(name)) res.add(obj);
+            if (obj.getName().toLowerCase().equals(name.toLowerCase())) res.add(obj);
         }
         return res;
     }

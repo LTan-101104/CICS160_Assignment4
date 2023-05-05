@@ -40,7 +40,7 @@ public class MainProgram {
                 }
                 for (Person a : modifyList.getInternalList()){
                     System.out.println(a);
-                    System.out.println("*Do you want to modify this person? Answer y/n");
+                    System.out.println("*Do you want to modify this person? Answer y to confirm. Press any other keys to cancel.");
                     char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
                     if (userCommand == 'y'){
                         while (true){
@@ -55,24 +55,25 @@ public class MainProgram {
                             else if (userCommand == '2') a.setAddress(valueChange);
                             else if (userCommand == '3') a.setPhone(valueChange);
                             else{
-                                System.out.println("Invalid input.");
+                                System.out.println("Invalid input. Please choose the associated number of the field you want to modify below.\n");
                                 continue;
                             } 
-                            break; //TODO: this little break here seems to break the main for loop as well
+                            break; 
                         }
                     }
                 }
             }
 
-            else if (userInput.equals("5")){ 
+            else if (userInput.equals("5")){ //!checked
                 System.out.println("*Please enter the index for the record you want to delete");
-                int index = inp.nextInt(); //TODO: must get to a new line right here or else it will bring an error in line 72
+                int index = inp.nextInt(); 
+                inp.nextLine(); // end current line and move to a complete new line
                 if (index < 0 || index >= listofPersons.getSize()){
-                    System.out.println("Error. Invalid Index.");
+                    System.out.println("Error. Invalid Index."); //! quick and interesting note: the problem above does not appear when this if runs, simply because this print statement already turn to a new line for us, so in the next big while loop, the nextLine is already on a completely new line
                     continue; //!move to another choice
                 }
                 System.out.println(listofPersons.getPerson(index));
-                System.out.println("*Do you want to delete this Person? Answer y/n"); 
+                System.out.println("*Do you want to delete this Person? Answer y to confirm. Press any other keys to cancel."); 
                 char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
                 if (userCommand == 'y'){
                     listofPersons.delete(index);
@@ -80,7 +81,7 @@ public class MainProgram {
             }
             
             else{ //!checked
-                System.out.println("Invalid Input. Please choose one of the command in the following menu");
+                System.out.println("Invalid Input. Please choose one of number of the associated command in the following menu.");
             }
 
         }
@@ -96,16 +97,17 @@ public class MainProgram {
         String address = k.nextLine();
         System.out.println("*Please enter the phone for person");
         String phone = k.nextLine();
-        System.out.println("*Is this person a student? Answer y/n");
+        System.out.println("*Is this person a student? Answer y to confirm. Press any other keys to cancel.");
         char userInput = Character.toLowerCase(k.nextLine().charAt(0));
         if (userInput == 'y'){
             System.out.println("*Please enter graduation year");
             int year = k.nextInt();
+            k.nextLine(); //move cursor to new line, good habit although this is not oriinally a problem since the first print statement will take care of this
             Student newObj = new Student(newName, address, phone, year);
             P.add(newObj);
             return;
         }
-        System.out.println(("*Is this person an employee? Answer y/n"));
+        System.out.println(("*Is this person an employee? Answer y to confirm. Press any other keys to cancel."));
         userInput = Character.toLowerCase(k.nextLine().charAt(0));
         if (userInput == 'y'){
             System.out.println("*Please enter department");
