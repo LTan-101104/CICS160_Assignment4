@@ -69,7 +69,7 @@ public class MainProgram {
                     continue; //!move to another choice
                 }
                 System.out.println(listofPersons.getPerson(index));
-                System.out.println("*Do you want to delete this Person? Answer y/n"); //TODO: may need to care about the case where answer is not y/n
+                System.out.println("*Do you want to delete this Person? Answer y/n"); 
                 char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
                 if (userCommand == 'y'){
                     listofPersons.delete(index);
@@ -95,7 +95,6 @@ public class MainProgram {
         String phone = k.nextLine();
         System.out.println("*Is this person a student? Answer y/n");
         char userInput = Character.toLowerCase(k.nextLine().charAt(0));
-        //TODO: maybe we need to check for the case which user's answer does not contain y/n as first character
         if (userInput == 'y'){
             System.out.println("*Please enter graduation year");
             int year = k.nextInt();
@@ -105,7 +104,6 @@ public class MainProgram {
         }
         System.out.println(("*Is this person an employee? Answer y/n"));
         userInput = Character.toLowerCase(k.nextLine().charAt(0));
-        //TODO: check user's answer right here like above
         if (userInput == 'y'){
             System.out.println("*Please enter department");
             String department = k.nextLine(); 
