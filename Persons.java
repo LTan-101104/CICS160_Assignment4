@@ -26,7 +26,7 @@ public class Persons {
         return this.size;
     }
 
-    public Persons search(String name){ //TODO: ignor cases
+    public Persons search(String name){ 
         // currently this only add if it is the same string, does not ignore cases
         Persons res = new Persons();
         for (Person obj : this.list){

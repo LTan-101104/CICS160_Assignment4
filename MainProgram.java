@@ -1,4 +1,5 @@
 import java.util.Scanner;
+//TODO: for all things involve with answer y o Y. It seems that you cannot just take the first character, you have to make sure it is complete Y
 public class MainProgram {
 
     public static void main (String[] args){
@@ -20,7 +21,7 @@ public class MainProgram {
             else if (userInput.equals("1")) System.out.println("\n" + listofPersons); //! checked
             else if (userInput.equals("2")) enterNewPerson(listofPersons, inp); //! checked, works fine now but may have problem when accidentially not choose y or n
             else if  (userInput.equals("3")) { //!checked
-                System.out.println("*Enter name of person you want to search for"); //TODO: need to ask again about whether or not we should treat uppercase and lowercase as the same in this operation
+                System.out.println("*Enter name of person you want to search for"); 
                 String nameSearch = inp.nextLine();
                 Persons res = listofPersons.search(nameSearch);
                 if (res.getSize() == 0) {
