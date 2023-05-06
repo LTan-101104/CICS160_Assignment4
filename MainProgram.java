@@ -1,5 +1,4 @@
 import java.util.Scanner;
-//TODO: for all things involve with answer y o Y. It seems that you cannot just take the first character, you have to make sure it is complete Y
 public class MainProgram {
 
     public static void main (String[] args){
@@ -42,19 +41,19 @@ public class MainProgram {
                 for (Person a : modifyList.getInternalList()){
                     System.out.println(a);
                     System.out.println("*Do you want to modify this person? Answer y to confirm. Press any other keys to cancel.");
-                    char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
-                    if (userCommand == 'y'){
+                    String userCommand = inp.nextLine().toLowerCase();
+                    if (userCommand.equals("y")){
                         while (true){
                             System.out.println("*Please enter the number associated with the field you want to modify:\n" 
                             + "     1)Name\n" 
                             + "     2)Address\n"
                             + "     3)Phone\n");
-                            userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
+                            userCommand = inp.nextLine().toLowerCase();
                             System.out.println("*Enter the new value that you want to assign to the field");
                             String valueChange = inp.nextLine();
-                            if (userCommand == '1') a.setName(valueChange);
-                            else if (userCommand == '2') a.setAddress(valueChange);
-                            else if (userCommand == '3') a.setPhone(valueChange);
+                            if (userCommand.equals("1")) a.setName(valueChange);
+                            else if (userCommand.equals("2")) a.setAddress(valueChange);
+                            else if (userCommand.equals("3")) a.setPhone(valueChange);
                             else{
                                 System.out.println("Invalid input. Please choose the associated number of the field you want to modify below.\n");
                                 continue;
@@ -75,14 +74,14 @@ public class MainProgram {
                 }
                 System.out.println(listofPersons.getPerson(index));
                 System.out.println("*Do you want to delete this Person? Answer y to confirm. Press any other keys to cancel."); 
-                char userCommand = Character.toLowerCase(inp.nextLine().charAt(0));
-                if (userCommand == 'y'){
+                String userCommand = inp.nextLine().toLowerCase();
+                if (userCommand.equals("y")){
                     listofPersons.delete(index);
                 }
             }
             
             else{ //!checked
-                System.out.println("Invalid Input. Please choose one of number of the associated command in the following menu.");
+                System.out.println("Invalid Input. Please choose one of the associated commands in the following menu.");
             }
 
         }
@@ -99,8 +98,8 @@ public class MainProgram {
         System.out.println("*Please enter the phone for person");
         String phone = k.nextLine();
         System.out.println("*Is this person a student? Answer y to confirm. Press any other keys to cancel.");
-        char userInput = Character.toLowerCase(k.nextLine().charAt(0));
-        if (userInput == 'y'){
+        String userInput = k.nextLine().toLowerCase();
+        if (userInput.equals("y")){
             System.out.println("*Please enter graduation year");
             int year = k.nextInt();
             k.nextLine(); //move cursor to new line, good habit although this is not oriinally a problem since the first print statement will take care of this
@@ -109,8 +108,8 @@ public class MainProgram {
             return;
         }
         System.out.println(("*Is this person an employee? Answer y to confirm. Press any other keys to cancel."));
-        userInput = Character.toLowerCase(k.nextLine().charAt(0));
-        if (userInput == 'y'){
+        userInput = k.nextLine().toLowerCase();
+        if (userInput.equals("y")){
             System.out.println("*Please enter department");
             String department = k.nextLine(); 
             Employee newObj = new Employee(newName, address, phone, department);
