@@ -1,7 +1,6 @@
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
-import java.util.ArrayList;
 import org.junit.Test;
 
 public class PersonsTest { //Note that we seem to have to mention <something> Test, with something as the class we want to test. 
@@ -34,7 +33,6 @@ public class PersonsTest { //Note that we seem to have to mention <something> Te
         Employee obj3 = new Employee("Hoang", "89 Union Street", "3153412421", "Military Department");
         Person obj4 = new Person("Vladimir", "780 Eagle Landing", "2143242313412");
         
-
         listObj.add(obj1);
         listObj.add(obj2);
         listObj.add(obj3);
