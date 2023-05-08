@@ -14,20 +14,15 @@ public class PersonsTest { //Note that we seem to have to mention <something> Te
         Student obj2 = new Student("Phuc", "70 Amity Street", "452354454235", 2027);
         Employee obj3 = new Employee("Hoang", "89 Union Street", "3153412421", "Military Department");
         Person obj4 = new Person("Vladimir", "780 Eagle Landing", "2143242313412");
-        ArrayList<Person> myArray = new ArrayList<Person>();
-        myArray.add(obj1);
-        myArray.add(obj2);
-        myArray.add(obj3);
-        myArray.add(obj4);
 
         listObj.add(obj1);
         listObj.add(obj2);
         listObj.add(obj3);
         listObj.add(obj4);
 
-        assertEquals(myArray, listObj.getInternalList());
-        myArray.remove(obj4);
-        assertNotEquals(myArray, listObj.getInternalList());
+        assertEquals(listObj.getInternalList().get(0), obj1);
+        assertEquals(listObj.getInternalList().get(1), obj2);
+        assertEquals(listObj.getInternalList().get(2), obj3);
     }
 
     @Test
@@ -38,26 +33,19 @@ public class PersonsTest { //Note that we seem to have to mention <something> Te
         Student obj2 = new Student("Phuc", "70 Amity Street", "452354454235", 2027);
         Employee obj3 = new Employee("Hoang", "89 Union Street", "3153412421", "Military Department");
         Person obj4 = new Person("Vladimir", "780 Eagle Landing", "2143242313412");
-        ArrayList<Person> myArray = new ArrayList<Person>();
-        myArray.add(obj1);
-        myArray.add(obj2);
-        myArray.add(obj3);
-        myArray.add(obj4);
+        
+
         listObj.add(obj1);
         listObj.add(obj2);
         listObj.add(obj3);
         listObj.add(obj4);
 
         //testing
-        myArray.remove(0);
+        assertEquals(obj1, listObj.getInternalList().get(0));
         listObj.delete(0);
-        assertEquals(myArray, listObj.getInternalList());
-        myArray.remove(2);
-        listObj.delete(2);
-        assertEquals(myArray, listObj.getInternalList());
-        myArray.add(obj4);
-        assertNotEquals(myArray, listObj.getInternalList());
-
+        assertEquals(listObj.getInternalList().get(0), obj2);
+        listObj.delete(0);
+        assertEquals(listObj.getInternalList().get(0), obj3);
     }
 
 

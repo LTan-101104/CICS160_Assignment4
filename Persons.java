@@ -14,7 +14,7 @@ public class Persons {
         for (Person obj : this.list){
             res += (obj.toString());
         }
-        return res; // ! Not clear why we need to have this return statement, by the way it is null not any String
+        return res; 
     }
 
     public void add(Person obj){ //! checked
