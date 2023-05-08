@@ -1,5 +1,4 @@
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
 
@@ -42,8 +41,8 @@ public class PersonsTest { //Note that we seem to have to mention <something> Te
         assertEquals(obj1, listObj.getInternalList().get(0));
         listObj.delete(0);
         assertEquals(listObj.getInternalList().get(0), obj2);
-        listObj.delete(0);
-        assertEquals(listObj.getInternalList().get(0), obj3);
+        listObj.delete(1);
+        assertEquals(listObj.getInternalList().get(1), obj4);
     }
 
 
